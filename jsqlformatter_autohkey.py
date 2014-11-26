@@ -1,5 +1,5 @@
 '''
-@author: amigur
+@author: skybber
 '''
 
 import string

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 '''
-@author: amigur
+@author: skybber
 '''
 
 import string
