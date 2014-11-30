@@ -8,21 +8,22 @@ Example:
 
 INPUT:
 
-'''java
-	sb.append(" select ");
-	sb.append(" home_url, ");
-	sb.append(" user_first_name ");
-	sb.append(" from ");
-	sb.append(User.TABLE);
-	sb.append(" WHERE ");
-	sb.append(" url LIKE '" + like + "' ");
-	sb.append(" and user_id != " + userId);
-	sb.append(" order by");
-	sb.append(" NLSSORT(user_first_name,'NLS_SORT=XWEST_EUROPEAN')");
-'''
+```Java
+sb.append(" select ");
+sb.append(" home_url, ");
+sb.append(" user_first_name ");
+sb.append(" from ");
+sb.append(User.TABLE);
+sb.append(" WHERE ");
+sb.append(" url LIKE '" + like + "' ");
+sb.append(" and user_id != " + userId);
+sb.append(" order by");
+sb.append(" NLSSORT(user_first_name,'NLS_SORT=XWEST_EUROPEAN')");
+```
 
 OUTPUT:
 
+```Java
 	"SELECT " +
 			"home_url,  user_first_name  " +
 	"FROM " +
@@ -33,3 +34,4 @@ OUTPUT:
 	"ORDER BY " +
 			"NLSSORT(user_first_name, " +
 			"'NLS_SORT=XWEST_EUROPEAN')";
+```
