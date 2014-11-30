@@ -2,7 +2,7 @@ jsqlformatter
 =============
 
 Java sql formatter. It takes the String / StringBuffer expression on the input and generates nicely formatted SQL string. It can be easily embedded 
-into any editor (Eclipse/NetBeans...) using Autokey or AutoHkey.
+into any editor (Eclipse/NetBeans...) using Autokey or AutoHkey. It is recommended to define hotkey in Autokey/AutoHKey that triggers jsqlformatter script. Jsqlformatter takes the clipboard content as an input, process the it and stores result back to clipboard so that the formatted text can be simly pasted to the editor (Eclipse, Netbeans etc.)
 
 Example:
 
