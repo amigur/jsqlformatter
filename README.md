@@ -8,6 +8,7 @@ Example:
 
 INPUT:
 
+'''java
 	sb.append(" select ");
 	sb.append(" home_url, ");
 	sb.append(" user_first_name ");
@@ -18,7 +19,7 @@ INPUT:
 	sb.append(" and user_id != " + userId);
 	sb.append(" order by");
 	sb.append(" NLSSORT(user_first_name,'NLS_SORT=XWEST_EUROPEAN')");
-
+'''
 
 OUTPUT:
 
