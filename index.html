@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Jsqlformatter by skybber</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Jsqlformatter</h1>
+        <h2>Java sql formatter. It takes the String / StringBuffer expression on the input and generates nicely formatted SQL string. It can be easily embedded  into any editor (Eclipse/NetBeans...) using Autokey or AutoHkey. </h2>
+        <a href="https://github.com/skybber/jsqlformatter" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="jsqlformatter" class="anchor" href="#jsqlformatter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jsqlformatter</h1>
+
+<p>Java SQL formatter. It takes the String / StringBuffer expression as an input and generates nicely formatted SQL string. It can be easily embedded 
+into any IDE (Eclipse/NetBeans...) using Autokey or AutoHkey. It is recommended to define hotkey in Autokey/AutoHKey that triggers jsqlformatter script. Jsqlformatter takes the clipboard content as an input, process it and stores result back to clipboard so that the formatted text can be easy pasted to the editor (Eclipse, Netbeans etc.)</p>
+
+<p>Example:</p>
+
+<p>INPUT:</p>
+
+<div class="highlight highlight-source-java"><pre>sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> select <span class="pl-pds">"</span></span>);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> home_url, <span class="pl-pds">"</span></span>);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> user_first_name <span class="pl-pds">"</span></span>);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> from <span class="pl-pds">"</span></span>);
+sb<span class="pl-k">.</span>append(<span class="pl-smi">User</span><span class="pl-c1"><span class="pl-k">.</span>TABLE</span>);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> WHERE <span class="pl-pds">"</span></span>);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> url LIKE '<span class="pl-pds">"</span></span> <span class="pl-k">+</span> like <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>' <span class="pl-pds">"</span></span>);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> and user_id != <span class="pl-pds">"</span></span> <span class="pl-k">+</span> userId);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> order by<span class="pl-pds">"</span></span>);
+sb<span class="pl-k">.</span>append(<span class="pl-s"><span class="pl-pds">"</span> NLSSORT(user_first_name,'NLS_SORT=XWEST_EUROPEAN')<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>OUTPUT:</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-s"><span class="pl-pds">"</span>SELECT <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+            <span class="pl-s"><span class="pl-pds">"</span>home_url,  user_first_name  <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+    <span class="pl-s"><span class="pl-pds">"</span>FROM <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+            <span class="pl-smi">User</span><span class="pl-c1"><span class="pl-k">.</span>TABLE</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+    <span class="pl-s"><span class="pl-pds">"</span>WHERE <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+            <span class="pl-s"><span class="pl-pds">"</span>url LIKE '<span class="pl-pds">"</span></span> <span class="pl-k">+</span>  like <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>'  <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+            <span class="pl-s"><span class="pl-pds">"</span>AND user_id != <span class="pl-pds">"</span></span> <span class="pl-k">+</span>  userId <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+    <span class="pl-s"><span class="pl-pds">"</span>ORDER BY <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+            <span class="pl-s"><span class="pl-pds">"</span>NLSSORT(user_first_name, <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+            <span class="pl-s"><span class="pl-pds">"</span>'NLS_SORT=XWEST_EUROPEAN')<span class="pl-pds">"</span></span>;</pre></div>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/skybber/jsqlformatter/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/skybber/jsqlformatter/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/skybber/jsqlformatter"></a> is maintained by <a href="https://github.com/skybber">skybber</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
